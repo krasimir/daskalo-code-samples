@@ -1,0 +1,6 @@
+@import url("./styles2.css");
+
+img, video, audio {
+  display: block;
+  margin-bottom: 1em;
+}
