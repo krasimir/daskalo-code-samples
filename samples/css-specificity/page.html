@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Specificity</title>
+  <style>
+    body p {
+      color: red;
+    }
+    body div p.first-paragraph {
+      color: green;
+    }
+    body div p {
+      color: blue !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <p class="first-paragraph">Paragraph A</p>
+    <p>Paragraph B</p>
+  </div>
+</body>
+</html>
