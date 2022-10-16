@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS animations</title>
+  <style>
+    @keyframes expand {
+      70% {
+        height: 200px;
+      }
+      100% {
+        width: 700px;
+        height: 400px;
+      }
+    }
+    body {
+      background: #1e1e1e;
+    }
+    .container {
+      width: 200px;
+      height: 200px;
+      background: #999;
+    }
+    .container:hover {
+      animation: expand 2s;
+      animation-fill-mode: forwards;
+    }
+  </style>
+</head>
+<body>
+  <div class="container"></div>
+</body>
+</html>
