@@ -1,0 +1,21 @@
+body {
+  background: #1e1e1e;
+  font-size: 26px;
+  color: white;
+}
+a {
+  color: white;
+}
+.header {
+  width: 900px;
+  margin: 2em auto;
+}
+.header__navigation {
+  background: #9f0000;
+}
+.header__link {
+  text-decoration: none;
+}
+.header__link--active {
+  color: #ff0000;
+}
