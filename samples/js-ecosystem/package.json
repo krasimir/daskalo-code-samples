@@ -1,0 +1,9 @@
+{
+  "name": "daskalo",
+  "version": "0.0.1",
+  "type": "module",
+  "dependencies": {
+    "daskalo": "^0.0.1",
+    "lodash": "4.17.21"
+  }
+}
