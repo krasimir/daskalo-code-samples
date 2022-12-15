@@ -1,0 +1,31 @@
+Arguments: 
+  /Users/krasimir/.nvm/versions/node/v18.0.0/bin/node /Users/krasimir/.nvm/versions/node/v18.0.0/bin/yarn add watch esbuild
+
+PATH: 
+  /Users/krasimir/Work/_tools/google-cloud-sdk/bin:/Users/krasimir/bin:/usr/local/opt/openssl@1.1/bin:/Users/krasimir/.yarn/bin:/Users/krasimir/.nvm/versions/node/v18.0.0/bin:/Applications/MAMP/bin/php/php5.6.2/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/krasimir/.rvm/bin:/Users/krasimir/.pyenv:/Users/krasimir/Work/_tools/flutter/flutter/bin:/Library/PostgreSQL/13/bin;:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/krasimir/Work/_tools/kubectl
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.0.0
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  SyntaxError: /Users/krasimir/Work/Krasimir/daskalo-code-samples/samples/casestudy-todo-app/package.json: Unexpected end of JSON input
+      at JSON.parse (<anonymous>)
+      at /Users/krasimir/.nvm/versions/node/v18.0.0/lib/node_modules/yarn/lib/cli.js:1629:59
+      at Generator.next (<anonymous>)
+      at step (/Users/krasimir/.nvm/versions/node/v18.0.0/lib/node_modules/yarn/lib/cli.js:310:30)
+      at /Users/krasimir/.nvm/versions/node/v18.0.0/lib/node_modules/yarn/lib/cli.js:321:13
+
+npm manifest: 
+  
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
