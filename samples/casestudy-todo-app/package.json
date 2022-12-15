@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "compile-js": "./node_modules/.bin/esbuild ./src/app.js --bundle --minify --outfile=./public/app.js",
+    "watch-js": "watch \"yarn compile-js\" ./src",
+    "server": "serve ./public",
+    "dev": "concurrently \"yarn watch-js\" \"yarn server\""
+  },
+  "dependencies": {
+    "concurrently": "^7.6.0",
+    "esbuild": "^0.16.7",
+    "serve": "^14.1.2",
+    "watch": "^1.0.2"
+  }
+}
