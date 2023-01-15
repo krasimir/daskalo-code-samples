@@ -28,5 +28,6 @@ const calculateMemoized = memoize(calculate);
   console.log(await calculateMemoized(2, 3));
   console.log(await calculateMemoized(2, 3));
   console.log(await calculateMemoized(5, 10));
+  console.log(await calculateMemoized(5, 10));
 
 })();
