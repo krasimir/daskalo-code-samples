@@ -1,4 +1,4 @@
-const URL = 'https://dummyjson.com/productsaaa';
+const URL = 'https://dummyjson.com/products';
 
 const IDLE = 'IDLE';
 const LOADING = 'LOADING';
@@ -8,7 +8,7 @@ const ERROR = 'ERROR';
 const state = {
   currentState: IDLE,
   products: null
-}
+};
 
 const machine = {
   [IDLE]: {
@@ -30,30 +30,24 @@ const machine = {
     }
   },
   transitionTo(newState) {
-    console.log(newState);
     if (machine[state.currentState][newState]) {
       const func = machine[state.currentState][newState];
       state.currentState = newState;
       render();
       func();
     } else {
-      throw new Error(`${newState} doesn't make sense.`)
+      throw new Error(`${newState} doesn't make sense`);
     }
   }
 }
-
-window.addEventListener('load', async () => {
-  render();
-  machine.transitionTo(SUCCESS);
-});
 
 function render() {
   let html = '';
 
   if (state.currentState === LOADING) {
-    html = '<p>The data is loading.</p>';
+    html = '<p>Loading ...</p>';
   } else if (state.currentState === ERROR) {
-    html = '<p>There is an error loading the data.</p>';
+    html = '<p>Sorry. There is an error.</p>';
   } else if (state.currentState === SUCCESS) {
     html = state.products.map(({ title }) => {
       return `<p>${title}</p>`;
@@ -65,6 +59,11 @@ function render() {
   document.querySelector('#container').innerHTML = html;
 }
 
+window.addEventListener('load', async () => {
+  render();
+  machine.transitionTo(LOADING);
+});
+
 function loadData() {
   return new Promise((done, reject) => {
     setTimeout(async () => {
@@ -72,8 +71,8 @@ function loadData() {
         const res = await fetch(URL);
         const data = await res.json();
         done(data.products);
-      } catch(error) {
-        reject(error);
+      } catch(err) {
+        reject(err);
       }
     }, 2000);
   });
