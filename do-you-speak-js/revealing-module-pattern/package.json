@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "dev": "nodemon ./code.js -q"
+  },
+  "nodemonConfig": {
+    "events": {
+      "start": "cls || clear",
+      "verbose": false
+    }
+  }
+}
