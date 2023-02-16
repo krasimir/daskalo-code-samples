@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Event delegation</title>
+  <style>
+    body {
+      background: #1e1e1e;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <header></header>
+  </div>
+  <script>
+    const buttons = [
+      'Log in',
+      'About us'
+    ];
+    function render() {
+      const html = buttons.reduce((res, label, i) => {
+        return res + `<button id="b${i+1}">${label}</button>`;
+      }, '');
+      document.querySelector('header').innerHTML = html;
+    }
+
+    window.addEventListener('load', () => {
+      render();
+      document.querySelector('header').addEventListener(
+        'click',
+        event => {
+          if (event.target.getAttribute('id') === 'b1') {
+            buttons[0] = 'Profile';
+            render();
+          } else if (event.target.getAttribute('id') === 'b2') {
+            console.log('Hello');
+          }
+        }
+      );
+    });
+  </script>
+</body>
+</html>
