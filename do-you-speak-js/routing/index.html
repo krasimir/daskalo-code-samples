@@ -30,7 +30,31 @@
   </nav>
   <section></section>
   <script>
-    
+    window.addEventListener('load', () => {
+      render();
+      document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          const newURL = link.getAttribute('href');
+          history.pushState({}, '', newURL);
+          render();
+        })
+      });
+    });
+    function render() {
+      let content = '';
+      switch(location.pathname) {
+        case '/about':
+          content = 'About';
+          break;
+        case '/contacts':
+          content = 'Contact';
+          break;
+        default:
+          content = 'Home';
+      }
+      document.querySelector('section').innerHTML = content;
+    }
   </script>
 </body>
 </html>
