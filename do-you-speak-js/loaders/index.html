@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Loading resources dynamically</title>
+  <style>
+    body {
+      background: #1e1e1e;
+      color: #fff;
+      padding: 1em;
+      font-size: 30px;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1 {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Daskalo.dev</h1>
+  <script>
+    window.addEventListener('load', () => {
+      const script = document.createElement('script');
+      script.src = './logic.js';
+      script.async = true;
+      script.type = 'text/javascript';
+      script.addEventListener('load', () => {
+        console.log('JavaScript file is loaded');
+      });
+      document.querySelector('head').append(script);
+
+      const style = document.createElement('link');
+      style.href = './styles.css';
+      style.rel = 'stylesheet';
+      style.addEventListener('load', () => {
+        console.log('CSS file is loaded');
+      });
+      document.querySelector('head').append(style);
+
+      const img = document.createElement('img');
+      img.src = './dog.jpg';
+      img.addEventListener('load', () => {
+        console.log('Image file is loaded');
+      });
+      document.querySelector('body').append(img);
+    });
+  </script>
+</body>
+</html>
