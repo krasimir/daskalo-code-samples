@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React</title>
+  <script type="text/javascript" src="../lib/babel.min.js"></script>
+  <script crossorigin src="../lib/react.production.min.js"></script>
+<script crossorigin src="../lib/react-dom.production.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    class App extends React.Component {
+      render() {
+        return (
+          <div>
+            <h1>What is React?</h1>
+            <p>React is a JavaScript library for building user interfaces.</p>
+          </div>
+        );
+      }
+    }
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>

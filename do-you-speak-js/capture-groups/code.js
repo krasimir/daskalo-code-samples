@@ -10,7 +10,4 @@ const email = `
 
 console.log(
   email.replace(/\S+@(\S+\.\S+)/g, '...@$1')
-)
-
-
-
+);
