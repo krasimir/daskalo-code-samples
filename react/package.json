@@ -4,6 +4,6 @@
     "serve": "14.2.1"
   },
   "scripts": {
-    "start": "serve"
+    "dev": "serve"
   }
 }
