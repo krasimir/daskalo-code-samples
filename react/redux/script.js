@@ -10,6 +10,7 @@ const usersSlice = createSlice({
   reducers: {
     setUsers: (state, action) => action.payload,
     up: (users, action) => {
+      console.log(action);
       const idx = users.findIndex(user => user.id === action.payload);
       if (idx !== -1 && idx !== 0) {
         const tmp = users[idx];
@@ -34,7 +35,7 @@ const store = configureStore({
   }
 });
 
-function App() {
+function App() {  
   const users = useSelector(state => state.users);
   const { up, down, setUsers } = usersSlice.actions;
   const dispatch = useDispatch();
