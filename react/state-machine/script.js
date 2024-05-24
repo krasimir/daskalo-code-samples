@@ -11,19 +11,22 @@ const machineStates = {
   LOADING: {
     on: {
       success: 'SUCCESS',
-      failure: 'ERROR'
+      error: 'ERROR'
     }
   },
+  SUCCESS: {},
   ERROR: {
     on: {
       retry: 'LOADING'
     }
   }
 }
+
 function createMachine(states, initialState) {
   let currentState = initialState;
   let listener = () => {};
   let context = {};
+
   return {
     getState() {
       return currentState;
@@ -38,7 +41,7 @@ function createMachine(states, initialState) {
         context = newContext;
         listener(currentState);
       } else {
-        console.error(`Invalid event: ${eventName} for state: ${currentState}`);
+        throw new Error(`Invalid event: ${eventName} for state ${currentState}`);
       }
     },
     onChange(callback) {
@@ -50,10 +53,10 @@ function createMachine(states, initialState) {
 const machine = createMachine(machineStates, 'IDLE');
 
 function App() {
-  const [state, setState] = useState(machine.getState());
-
+  const [ state, setState ] = useState(machine.getState());
+  
   useEffect(() => {
-    machine.onChange((newState) => {
+    machine.onChange(newState => {
       setState(newState);
       if (newState === 'LOADING') {
         fetch(GET_USER_URL)
@@ -64,17 +67,16 @@ function App() {
             }, 1000);
           })
           .catch(() => {
-            console.log('error');
-            machine.send('failure');
+            machine.send('error');
           });
-      }      
+      }
     });
   }, []);
 
   if (state === 'IDLE') {
     return (
-      <button onClick={() => machine.send('fetch')}>Fetch</button>
-    );
+      <button onClick={() => machine.send('fetch')}>Fetch Users</button>
+    )
   }
 
   if (state === 'LOADING') {
@@ -83,10 +85,10 @@ function App() {
 
   if (state === 'ERROR') {
     return (
-      <>
-        <div>Error...</div>
+      <div>
+        <div>Something went wrong</div>
         <button onClick={() => machine.send('retry')}>Retry</button>
-      </>
+      </div>
     );
   }
 
@@ -97,8 +99,6 @@ function App() {
         {users.map(user => (
           <li key={user.id}>
             {user.name}
-            <button onClick={() => dispatch(up(user.id))}>up</button>
-            <button onClick={() => dispatch(down(user.id))}>down</button>
           </li>
         ))}
       </ul>
