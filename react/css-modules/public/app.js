@@ -23526,8 +23526,15 @@
   // src/index.tsx
   var import_react = __toESM(require_react(), 1);
   var import_client = __toESM(require_client(), 1);
+
+  // src/a.module.css
+  var a_default = {
+    title: "a_title"
+  };
+
+  // src/index.tsx
   function App() {
-    return /* @__PURE__ */ import_react.default.createElement("h1", null, "Hello, ", /* @__PURE__ */ import_react.default.createElement("span", null, "user"));
+    return /* @__PURE__ */ import_react.default.createElement("h1", { className: a_default.title }, "Hello, ", /* @__PURE__ */ import_react.default.createElement("span", null, "user"));
   }
   var root = import_client.default.createRoot(document.getElementById("root"));
   root.render(/* @__PURE__ */ import_react.default.createElement(App, null));

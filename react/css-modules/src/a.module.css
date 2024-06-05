@@ -1,0 +1,5 @@
+@import "./b.module.css";
+
+.title {
+  color: red;
+}

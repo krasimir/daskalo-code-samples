@@ -1,2 +1,9 @@
-/* src/a.module.css */
 /* src/b.module.css */
+.b_title {
+  color: magenta;
+}
+
+/* src/a.module.css */
+.a_title {
+  color: red;
+}
