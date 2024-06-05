@@ -1,11 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import styles from './styles.module.css';
+import ReactDOM from 'react-dom/client';
 
 function App() {
-  console.log(styles);
   return (
-    <h1>Hello, <span className={styles.title}>user</span></h1>
+    <h1>Hello, <span>user</span></h1>
   );
 }
 

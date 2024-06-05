@@ -23492,21 +23492,44 @@
     }
   });
 
+  // node_modules/react-dom/client.js
+  var require_client = __commonJS({
+    "node_modules/react-dom/client.js"(exports) {
+      "use strict";
+      var m = require_react_dom();
+      if (false) {
+        exports.createRoot = m.createRoot;
+        exports.hydrateRoot = m.hydrateRoot;
+      } else {
+        i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        exports.createRoot = function(c, o) {
+          i.usingClientEntryPoint = true;
+          try {
+            return m.createRoot(c, o);
+          } finally {
+            i.usingClientEntryPoint = false;
+          }
+        };
+        exports.hydrateRoot = function(c, h, o) {
+          i.usingClientEntryPoint = true;
+          try {
+            return m.hydrateRoot(c, h, o);
+          } finally {
+            i.usingClientEntryPoint = false;
+          }
+        };
+      }
+      var i;
+    }
+  });
+
   // src/index.tsx
   var import_react = __toESM(require_react(), 1);
-  var import_react_dom = __toESM(require_react_dom(), 1);
-
-  // src/styles.module.css
-  var styles_default = {
-    title: "styles_title"
-  };
-
-  // src/index.tsx
+  var import_client = __toESM(require_client(), 1);
   function App() {
-    console.log(styles_default);
-    return /* @__PURE__ */ import_react.default.createElement("h1", null, "Hello, ", /* @__PURE__ */ import_react.default.createElement("span", { className: styles_default.title }, "user"));
+    return /* @__PURE__ */ import_react.default.createElement("h1", null, "Hello, ", /* @__PURE__ */ import_react.default.createElement("span", null, "user"));
   }
-  var root = import_react_dom.default.createRoot(document.getElementById("root"));
+  var root = import_client.default.createRoot(document.getElementById("root"));
   root.render(/* @__PURE__ */ import_react.default.createElement(App, null));
 })();
 /*! Bundled license information:
