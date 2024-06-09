@@ -1,0 +1,15 @@
+{
+  "type": "module",
+  "name": "css-modules-test",
+  "devDependencies": {
+    "jsdom": "^24.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-test-renderer": "^18.3.1",
+    "vitest": "^1.6.0"
+  },
+  "scripts": {
+    "test": "vitest --root src/"
+  },
+  "license": "MIT"
+}
