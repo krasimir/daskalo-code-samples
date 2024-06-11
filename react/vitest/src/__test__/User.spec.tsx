@@ -15,7 +15,7 @@ describe('Given User component', () => {
       const renderer = TestRenderer.create(<User data={{}}/>);
       expect(
         renderer.toJSON().children.join('')
-    ).toEqual('Name: unknown');
+      ).toEqual('Name: unknown');
     });
   });
 })

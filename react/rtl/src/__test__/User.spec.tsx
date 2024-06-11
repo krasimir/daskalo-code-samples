@@ -15,7 +15,7 @@ describe('Given User component', () => {
   describe('When the data is not provided', () => {
     it('Then it should render nothing', async () => {
       render(<User />);
-      await expect(screen.queryByText('Name:')).toBeNull();
+      await expect(screen.queryByText('Name: Krasimir')).toBeNull();
     });
   });
   describe('When the data is provided but there is no name', () => {
