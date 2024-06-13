@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { Provider } from './dependencies';
+import {Provider} from './dependencies';
 import Users from './Users';
 
 async function getUsers() {

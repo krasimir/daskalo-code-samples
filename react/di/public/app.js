@@ -812,11 +812,11 @@
             var hasWarnedAboutUsingConsumerProvider = false;
             var hasWarnedAboutDisplayNameOnConsumer = false;
             {
-              var Consumer2 = {
+              var Consumer = {
                 $$typeof: REACT_CONTEXT_TYPE,
                 _context: context
               };
-              Object.defineProperties(Consumer2, {
+              Object.defineProperties(Consumer, {
                 Provider: {
                   get: function() {
                     if (!hasWarnedAboutUsingConsumerProvider) {
@@ -874,7 +874,7 @@
                   }
                 }
               });
-              context.Consumer = Consumer2;
+              context.Consumer = Consumer;
             }
             {
               context._currentRenderer = null;
@@ -23531,7 +23531,6 @@
   var import_react = __toESM(require_react(), 1);
   var DependenciesContext = (0, import_react.createContext)(null);
   var Provider = DependenciesContext.Provider;
-  var Consumer = DependenciesContext.Consumer;
   function useDependencies() {
     const { getUsers: getUsers2 } = (0, import_react.useContext)(DependenciesContext);
     return { getUsers: getUsers2 };
