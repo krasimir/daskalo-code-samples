@@ -1,0 +1,15 @@
+{
+  "type": "module",
+  "name": "css-modules-test",
+  "devDependencies": {
+    "chokidar-cli": "^3.0.0",
+    "esbuild": "0.21.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "scripts": {
+    "build": "node ./build.js",
+    "dev": "./node_modules/.bin/chokidar \"./src/*.*\" -c \"yarn build\""
+  },
+  "license": "MIT"
+}
