@@ -1,20 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {Provider} from './dependencies';
-import Users from './Users';
+
+import App from './App';
 
 async function getUsers() {
   const result = await fetch('https://jsonplaceholder.typicode.com/users');
   return await result.json();
 }
 
-function App() {
-  return (
-    <Provider value={{ getUsers }}>
-      <Users />
-    </Provider>
-  );
-}
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+getUsers().then(users => {
+  root.render(<App users={users} />);
+});

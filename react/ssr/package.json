@@ -9,7 +9,12 @@
   },
   "scripts": {
     "build": "node ./build.js",
-    "dev": "./node_modules/.bin/chokidar \"./src/*.*\" -c \"yarn build\""
+    "dev": "./node_modules/.bin/chokidar \"./src/*.*\" -c \"yarn build\"",
+    "server": "node ./server.js",
+    "transpile": "esbuild ./src/* --outdir=./dist"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
 }

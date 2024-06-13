@@ -784,7 +784,7 @@
             }
             return children;
           }
-          function createContext2(defaultValue) {
+          function createContext(defaultValue) {
             var context = {
               $$typeof: REACT_CONTEXT_TYPE,
               // As a workaround to support multiple concurrent renderers, we categorize
@@ -1070,7 +1070,7 @@
             }
             return dispatcher;
           }
-          function useContext2(Context) {
+          function useContext(Context) {
             var dispatcher = resolveDispatcher();
             {
               if (Context._context !== void 0) {
@@ -1084,7 +1084,7 @@
             }
             return dispatcher.useContext(Context);
           }
-          function useState2(initialState) {
+          function useState(initialState) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useState(initialState);
           }
@@ -1096,7 +1096,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useRef(initialValue);
           }
-          function useEffect2(create, deps) {
+          function useEffect(create, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useEffect(create, deps);
           }
@@ -1865,7 +1865,7 @@
           exports.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactSharedInternals;
           exports.act = act;
           exports.cloneElement = cloneElement$1;
-          exports.createContext = createContext2;
+          exports.createContext = createContext;
           exports.createElement = createElement$1;
           exports.createFactory = createFactory;
           exports.createRef = createRef;
@@ -1876,10 +1876,10 @@
           exports.startTransition = startTransition;
           exports.unstable_act = act;
           exports.useCallback = useCallback;
-          exports.useContext = useContext2;
+          exports.useContext = useContext;
           exports.useDebugValue = useDebugValue;
           exports.useDeferredValue = useDeferredValue;
-          exports.useEffect = useEffect2;
+          exports.useEffect = useEffect;
           exports.useId = useId;
           exports.useImperativeHandle = useImperativeHandle;
           exports.useInsertionEffect = useInsertionEffect;
@@ -1887,7 +1887,7 @@
           exports.useMemo = useMemo;
           exports.useReducer = useReducer;
           exports.useRef = useRef;
-          exports.useState = useState2;
+          exports.useState = useState;
           exports.useSyncExternalStore = useSyncExternalStore;
           exports.useTransition = useTransition;
           exports.version = ReactVersion;
@@ -23524,27 +23524,13 @@
   });
 
   // src/index.tsx
-  var import_react3 = __toESM(require_react(), 1);
+  var import_react2 = __toESM(require_react(), 1);
   var import_client = __toESM(require_client(), 1);
 
-  // src/dependencies.tsx
+  // src/App.tsx
   var import_react = __toESM(require_react(), 1);
-  var DependenciesContext = (0, import_react.createContext)(null);
-  var Provider = DependenciesContext.Provider;
-  function useDependencies() {
-    const { getUsers: getUsers2 } = (0, import_react.useContext)(DependenciesContext);
-    return { getUsers: getUsers2 };
-  }
-
-  // src/Users.tsx
-  var import_react2 = __toESM(require_react(), 1);
-  function Users() {
-    const [users, setUsers] = (0, import_react2.useState)([]);
-    const { getUsers: getUsers2 } = useDependencies();
-    (0, import_react2.useEffect)(() => {
-      getUsers2().then(setUsers);
-    }, []);
-    return /* @__PURE__ */ import_react2.default.createElement("ul", null, users.map((user) => /* @__PURE__ */ import_react2.default.createElement("li", { key: user.id }, user.name)));
+  function App({ users }) {
+    return /* @__PURE__ */ import_react.default.createElement("ul", null, users.map((user) => /* @__PURE__ */ import_react.default.createElement("li", { key: user.id }, user.name)));
   }
 
   // src/index.tsx
@@ -23552,11 +23538,10 @@
     const result = await fetch("https://jsonplaceholder.typicode.com/users");
     return await result.json();
   }
-  function App() {
-    return /* @__PURE__ */ import_react3.default.createElement(Provider, { value: { getUsers } }, /* @__PURE__ */ import_react3.default.createElement(Users, null));
-  }
   var root = import_client.default.createRoot(document.getElementById("root"));
-  root.render(/* @__PURE__ */ import_react3.default.createElement(App, null));
+  getUsers().then((users) => {
+    root.render(/* @__PURE__ */ import_react2.default.createElement(App, { users }));
+  });
 })();
 /*! Bundled license information:
 
