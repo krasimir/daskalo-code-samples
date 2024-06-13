@@ -5,16 +5,16 @@ import {
   Route,
   Link,
   Routes,
-  useParams,
-} from "react-router-dom";
+  useParams
+} from 'react-router-dom';
 
 function App() {
   return (
     <BrowserRouter basename='/routing'>
       <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/contacts" element={<Contacts />}/>
-        <Route path="/settings/:content" element={<Settings />}/>
+        <Route path='/' element={<Home />} />
+        <Route path='/contacts' element={<Contacts />} />
+        <Route path='/settings/:content' element={<Settings />} />
       </Routes>
     </BrowserRouter>
   )
@@ -22,28 +22,30 @@ function App() {
 function Home() {
   return (
     <div>
-      <p>This is home page</p>
-      <Link to="/contacts">Contacts</Link>
-      <Link to="/settings/profile">Settings</Link>
+      <h1>Home</h1>
+      <Link to='/contacts'>Contacts</Link>
+      <Link to='/settings/privacy'>Settings</Link>
+      <Link to='/settings/profile'>Profile</Link>
     </div>
   )
 }
 function Contacts() {
   return (
     <div>
-      <p>This is contacts page</p>
-      <Link to="/">back to home</Link>
+      <h1>Contacts</h1>
+      <Link to='/'>Home</Link>
     </div>
-  );
+  )
 }
 function Settings() {
   const { content } = useParams();
   return (
     <div>
-      <p>This is settings page - {content}</p>
-      <Link to="/">back to home</Link>
+      <h1>Settings</h1>
+      <p>{content}</p>
+      <Link to='/'>Home</Link>
     </div>
-  );
+  )
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

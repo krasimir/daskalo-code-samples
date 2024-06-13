@@ -25446,14 +25446,14 @@
     return /* @__PURE__ */ import_react.default.createElement(BrowserRouter, { basename: "/routing" }, /* @__PURE__ */ import_react.default.createElement(Routes, null, /* @__PURE__ */ import_react.default.createElement(Route, { path: "/", element: /* @__PURE__ */ import_react.default.createElement(Home, null) }), /* @__PURE__ */ import_react.default.createElement(Route, { path: "/contacts", element: /* @__PURE__ */ import_react.default.createElement(Contacts, null) }), /* @__PURE__ */ import_react.default.createElement(Route, { path: "/settings/:content", element: /* @__PURE__ */ import_react.default.createElement(Settings, null) })));
   }
   function Home() {
-    return /* @__PURE__ */ import_react.default.createElement("div", null, /* @__PURE__ */ import_react.default.createElement("p", null, "This is home page"), /* @__PURE__ */ import_react.default.createElement(Link, { to: "/contacts" }, "Contacts"), /* @__PURE__ */ import_react.default.createElement(Link, { to: "/settings/profile" }, "Settings"));
+    return /* @__PURE__ */ import_react.default.createElement("div", null, /* @__PURE__ */ import_react.default.createElement("h1", null, "Home"), /* @__PURE__ */ import_react.default.createElement(Link, { to: "/contacts" }, "Contacts"), /* @__PURE__ */ import_react.default.createElement(Link, { to: "/settings/privacy" }, "Settings"), /* @__PURE__ */ import_react.default.createElement(Link, { to: "/settings/profile" }, "Profile"));
   }
   function Contacts() {
-    return /* @__PURE__ */ import_react.default.createElement("div", null, /* @__PURE__ */ import_react.default.createElement("p", null, "This is contacts page"), /* @__PURE__ */ import_react.default.createElement(Link, { to: "/" }, "back to home"));
+    return /* @__PURE__ */ import_react.default.createElement("div", null, /* @__PURE__ */ import_react.default.createElement("h1", null, "Contacts"), /* @__PURE__ */ import_react.default.createElement(Link, { to: "/" }, "Home"));
   }
   function Settings() {
     const { content } = useParams();
-    return /* @__PURE__ */ import_react.default.createElement("div", null, /* @__PURE__ */ import_react.default.createElement("p", null, "This is settings page - ", content), /* @__PURE__ */ import_react.default.createElement(Link, { to: "/" }, "back to home"));
+    return /* @__PURE__ */ import_react.default.createElement("div", null, /* @__PURE__ */ import_react.default.createElement("h1", null, "Settings"), /* @__PURE__ */ import_react.default.createElement("p", null, content), /* @__PURE__ */ import_react.default.createElement(Link, { to: "/" }, "Home"));
   }
   var root = import_client.default.createRoot(document.getElementById("root"));
   root.render(/* @__PURE__ */ import_react.default.createElement(App, null));
