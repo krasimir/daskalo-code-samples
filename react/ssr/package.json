@@ -8,10 +8,9 @@
     "react-dom": "^18.3.1"
   },
   "scripts": {
-    "build": "node ./build.js",
-    "dev": "./node_modules/.bin/chokidar \"./src/*.*\" -c \"yarn build\"",
-    "server": "node ./server.js",
-    "transpile": "esbuild ./src/* --outdir=./dist"
+    "bundle": "node ./build.js",
+    "transpile": "esbuild ./src/* --outdir=./dist",
+    "dev": "yarn bundle && yarn transpile && node ./server.js"
   },
   "license": "MIT",
   "dependencies": {

@@ -20,8 +20,10 @@ async function getUsers() {
 
 app.get('/', async (req, res) => {
   const users = await getUsers();
-  const appHTML = ReactDOMServer.renderToString(React.createElement(App, { users }));
-  res.send(PAGE.replace('<div id="root"></div>', `<div id="root">${appHTML}</div>`));
+  const appHTML = ReactDOMServer.renderToString(
+    React.createElement(App, { users })
+  );
+  res.send(PAGE.replace(`<div id="root"></div>`, `<div id="root">${appHTML}</div>`));
 });
 
 app.listen(3000, () => {
